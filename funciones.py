@@ -49,7 +49,16 @@ def Grafico_trabajo(df):
     return df_grafic
     
 
+""" import yaml
 
+    try:
+        with open(r"config.yaml", 'r') as file:
+            config = yaml.safe_load(file) 
+    except Exception as e:
+        print(f"Error reading the config file: {e}")
+
+    #leemos la base de datos
+    df = pd.read_csv(config['data']['data'])"""
 
 def cargar_y_limpiza_datos():
     import pandas as pd
