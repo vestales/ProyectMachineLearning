@@ -11,8 +11,8 @@ Hola somos Andrea y German y somos estudiantes de Data Analyst en Ironhack. Y en
 ## Metadatos
 
 - Autores: Andrea y Germán Gómez.
-- Fecha de creación: 06/05/2024.
-- Última modificación: 16/05/2024.
+- Fecha de creación: 20/05/2024.
+- Última modificación: 24/05/2024.
 - Fuente de datos: <a href= "https://github.com/vestales/ProyectMachineLearning.git">Github de Ironhack.</a>
 - <a href= "https://docs.google.com/presentation/d/10OOQRm3hUEJVRVdZPQTd6kDNqXviRNOwRt5TfV0AUP0/edit?usp=sharing">Presentacion.</a>
 
