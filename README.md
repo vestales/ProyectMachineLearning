@@ -20,4 +20,35 @@ Hola somos Andrea y German y somos estudiantes de Data Analyst en Ironhack. Y en
 
 - Importación de datos: inicialización de las librerías necesarias e importación de los dos datasets empleados para el análisis.
 - Limpieza y formateo para poder integrar todos los datasets en uno.
-- Técnicas de análisis exploratorio y de comportamiento.
+- Analisys de datos.
+- Machine Learning
+
+## 📊 Insights visuales
+
+![Puesto de trabajo por tipo](https://drive.google.com/uc?export=view&id=1OQ3qrna3NE2Iqo1UlwkH7KALydqkp5JQ)
+
+Aqui vemos el puesto de trabajo con el tipo de contrato.
+
+![Tipo con remoto](https://drive.google.com/uc?export=view&id=1p33cb50gAK4vWYsYfEAggUJsctdFUVXZ)
+
+Aqui vemos como esta repartido el tipo de contrato con si es remoto o no.
+
+![Tipo con exp](https://drive.google.com/uc?export=view&id=1XHADo4EnJcb-RnAofcKNbRy4NShaIJ0x)
+
+Aqui vemos como esta repartido el tipo de contrato con su experiencia en el puesto.
+
+![Exp por tamanyo](https://drive.google.com/uc?export=view&id=1XeqgfN703O9fhv7FRzvipZ1KZIhy0ugr)
+
+Aqui vemos como esta repartido la experiencia en el puesto con el tamanyo de la empresa.
+
+![Anyo y exp](https://drive.google.com/uc?export=view&id=1nLeHafr-ZaSevG9GD7NjBsiMsgEDfU_g)
+
+Aqui vemos como esta repartido la experiencia en el puesto con el anyo de la oferta de trabajo.
+
+![Log y tamanyo](https://drive.google.com/uc?export=view&id=148yDg-wGqgK8xi0QrkNMIbDd7DZm63aj)
+
+Aqui vemos como esta repartido la localizacion de la empresa con el tamanyo de dicha empresa.
+
+![Log y exp](https://drive.google.com/uc?export=view&id=1zDYV5NpeuzhAmVuZi9v18T148HfX1unX)
+
+Aqui vemos como esta repartido la localizacion de la empresa y la experiencia en el puesto.

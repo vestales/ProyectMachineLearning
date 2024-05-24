@@ -1,18 +1,4 @@
-def eliminar_palabras(text, palabras):
-    #Introducimos un texto y una lista de palabras y si el texto se encuentra dentro
-    #de la lista lo sustituimos por un espacio.
-    for palabra in palabras:
-        text = text.replace(palabra, "")
-    
-    return text.strip()
 
-
-def modificar_palabras(text, palabras_mod):
-    #modificamos las palabras y luego las reemplazamos.
-    for palabra, modificar in palabras_mod.items():
-        text = text.replace(palabra, modificar)
-    
-    return text.strip()
 
 def Grafico_trabajo(df):
     import matplotlib.pyplot as plt
@@ -30,14 +16,14 @@ def Grafico_trabajo(df):
     fig, ax1 = plt.subplots(figsize=(20, 6))
 
     # Plotting the bar chart
-    ax1.bar(df_grafic['job_title_clean'], df_grafic['proportion'], color='C0')
+    ax1.bar(df_grafic['job_title'], df_grafic['proportion'], color='C0')
     ax1.set_xlabel('Job Titles')
     ax1.set_ylabel('Proportion')
     ax1.tick_params(axis='x', rotation=90)
 
     # Plotting the cumulative percentage line
     ax2 = ax1.twinx()
-    ax2.plot(df_grafic['job_title_clean'], df_grafic['cumulative_sum'], color='C1', marker='o', ms=4)
+    ax2.plot(df_grafic['job_title'], df_grafic['cumulative_sum'], color='C1', marker='o', ms=4)
     ax2.axhline(y=0.95, color='gray', linestyle='--')
     ax2.set_ylabel('Cumulative Proportion')
 
@@ -46,8 +32,22 @@ def Grafico_trabajo(df):
 
     plt.title('Pareto Chart of Job Titles')
     plt.show()
-    return df_grafic
     
+def eliminar_palabras(text, palabras):
+    #Introducimos un texto y una lista de palabras y si el texto se encuentra dentro
+    #de la lista lo sustituimos por un espacio.
+    for palabra in palabras:
+        text = text.replace(palabra, "")
+    
+    return text.strip()
+
+
+def modificar_palabras(text, palabras_mod):
+    #modificamos las palabras y luego las reemplazamos.
+    for palabra, modificar in palabras_mod.items():
+        text = text.replace(palabra, modificar)
+    
+    return text.strip()
 
 """ import yaml
 
@@ -62,7 +62,7 @@ def Grafico_trabajo(df):
 
 def cargar_y_limpiza_datos():
     import pandas as pd
-    url = 'salaries _2.csv'
+    url = 'data\salaries _2.csv'
     df = pd.read_csv(url)
 
     df = df.drop(columns=["salary_currency", "salary"])
@@ -81,20 +81,20 @@ def cargar_y_limpiza_datos():
     #Modificamos las palabras.
     df["job_title_clean"] = df.job_title_clean.apply(lambda x : modificar_palabras(x, palabras_mod))
 
-    #Creamos una tabla con los nombres de los trabajamos ya limpio.
-    df_prueba = pd.DataFrame(data= pd.DataFrame(df.job_title_clean.value_counts(normalize=True), 
-                                                columns=["proportion"]).values, columns=["proportion"], 
-                                                index=[pd.DataFrame(df.job_title_clean.value_counts(normalize=True), 
-                                                                    columns=["proportion"]).index])
-
-
     #Sustituimos la antigua columna por la nueva ya limpia.
     df["job_title"] = df["job_title_clean"]
     df = df.drop(columns="job_title_clean")
 
-    df_grafic = Grafico_trabajo(df_prueba)
+    #Creamos una tabla con los nombres de los trabajamos ya limpio.
+    df_prueba = pd.DataFrame(data= pd.DataFrame(df.job_title.value_counts(normalize=True), 
+                                                columns=["proportion"]).values, columns=["proportion"], 
+                                                index=[pd.DataFrame(df.job_title.value_counts(normalize=True), 
+                                                                    columns=["proportion"]).index])
 
-    Lista_trabajos = df_grafic[df_grafic['cumulative_sum'] <= 0.95]["job_title_clean"]
+    df_prueba = df_prueba.reset_index()
+    #Grafico_trabajo(df_prueba)
+
+    Lista_trabajos = df_prueba[df_prueba['proportion'].cumsum() <= 0.95]["job_title"]
 
     #Solo dejamos los primeros 95% de datos
     df = df[df.job_title.isin(Lista_trabajos)]
